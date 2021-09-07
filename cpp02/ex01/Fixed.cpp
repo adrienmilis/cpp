@@ -23,7 +23,6 @@ Fixed::Fixed(const float fnb) {
 
     std::cout << "Float constructor called" << std::endl;
     this->_fixed_value = (int)(roundf(fnb * (1 << this->_bits)));
-    // max float that can be converted ?
 }
 
 Fixed::Fixed(Fixed const & src) {
