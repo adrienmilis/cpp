@@ -3,12 +3,12 @@
 
 #include <iostream>
 
-class Animal
+class AAnimal
 {
     public:
 
-        Animal();
-        virtual ~Animal();
+        AAnimal();
+        virtual ~AAnimal();
 
         std::string    getType() const;
 
