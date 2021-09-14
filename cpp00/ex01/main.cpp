@@ -1,7 +1,7 @@
 #include "Contact.hpp"
 #include "Phonebook.hpp"
 
-int main(int argc, char **argv)
+int main(void)
 {
     Phonebook   phonebook;
     std::string command;
