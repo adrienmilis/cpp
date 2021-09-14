@@ -20,7 +20,7 @@ int main(int argc, char **argv)
                 std::cout << "Phonebook is full" << std::endl;
             else
             {
-                phonebook.contacts[i].add();
+                phonebook.getContacts()[i].add();
                 i++;
             }
         }
@@ -30,13 +30,13 @@ int main(int argc, char **argv)
                 std::cout << "No data available" << std::endl;
             else {
                 for (int j = 0; j < i; j++)
-                    phonebook.contacts[j].print_columns();
+                    phonebook.getContacts()[j].print_columns();
                 std::cout << "Enter id for more details: ";
                 getline(std::cin, requested_id);
                 try {
                     req_id = stoi(requested_id);
                     if (req_id <= i - 1)
-                        phonebook.contacts[req_id].print_details();
+                        phonebook.getContacts()[req_id].print_details();
                     else
                         std::cout << "Id is invalid" << std::endl;
                 }

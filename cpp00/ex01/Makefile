@@ -1,2 +1,2 @@
 all:
-	clang++ main.cpp Contact.cpp -o phonebook
+	clang++ main.cpp Contact.cpp Phonebook.cpp -o phonebook

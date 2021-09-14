@@ -5,9 +5,15 @@
 
 class Phonebook {
     
+    private:
+
+        Contact contacts[8];
+
     public:
 
-    Contact contacts[8];
+        Phonebook();
+        ~Phonebook();
+        Contact  *getContacts();
 };
 
 #endif
