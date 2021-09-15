@@ -6,6 +6,7 @@ Zombie::Zombie(std::string name) : _name(name) {
 
 Zombie::Zombie() {
 
+    this->_name = "default";
 }
 
 Zombie::~Zombie() {

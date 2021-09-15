@@ -27,24 +27,27 @@ void    create_new_file(std::string filename, std::string s1, std::string s2, st
 
 int main(int argc, char **argv)
 {
-    std::string     filename(argv[1]);
-    std::string     s1(argv[2]);
-    std::string     s2(argv[3]);
-    std::ifstream   ifs(filename);
-    
     if (argc != 4)
     {
         std::cout << "Program takes 3 arguments" << std::endl;
         return (1);
     }
+
+    std::string     filename(argv[1]);
+    std::string     s1(argv[2]);
+    std::string     s2(argv[3]);
+    std::ifstream   ifs(filename);
+
     if (filename.empty() || s1.empty() || s2.empty())
     {
         std::cout << "Strings can't be empty" << std::endl;
+        ifs.close();
         return (1);
     }
     if (ifs.good() == 0)
     {
         std::cout << "File does not exist" << std::endl;
+        ifs.close();
         return (1);
     }
     create_new_file(filename, s1, s2, ifs);
