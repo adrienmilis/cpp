@@ -2,17 +2,15 @@
 
 int	main(int argc, char **argv)
 {
-	if (argc > 2)
-	{
-		std::cout << "Zero or one argument required" << std::endl;
-		return (0);
-	}
+	std::string	full_string = "";
 	if (argc == 1)
 	{
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 		return (0);
 	}
-	for (int i = 0; i < (int)strlen(argv[1]) ; i++)
-		argv[1][i] = toupper(argv[1][i]);
-	std::cout << argv[1] << std::endl;
+	for (int i = 1; i < argc ; i++)
+		full_string += argv[i];
+	for (int i = 0; i < (int)full_string.length() ; i++)
+		full_string[i] = toupper(full_string[i]);
+	std::cout << full_string << std::endl;
 }
