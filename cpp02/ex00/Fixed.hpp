@@ -8,7 +8,6 @@ class Fixed
     public:
 
         Fixed(void);
-        // public function
         Fixed(Fixed const & src);
         ~Fixed(void);
 
