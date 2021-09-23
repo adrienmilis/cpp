@@ -2,7 +2,6 @@
 
 Point::Point() : _x(), _y() {
 
-    
 }
 
 Point::Point(Fixed const a, Fixed const b) : _x(a.toFloat()), _y(b.toFloat()) {
