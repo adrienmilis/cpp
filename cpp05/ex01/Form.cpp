@@ -1,0 +1,105 @@
+#include "Form.hpp"
+
+/*
+    - le form n'est pas signe (initialise a 0)
+    - constructeurs/destructeur/operateur=
+    - beSigned
+*/
+
+// EXCEPTIONS
+class Form::GradeTooHighException : public std::exception
+{
+    public:
+        virtual const char* what() const throw()
+        {
+            return ("Exception : grade is too high");
+        }
+};
+
+class Form::GradeTooLowException : public std::exception
+{
+    public:
+        virtual const char* what() const throw()
+        {
+            return ("Exception : grade is too low");
+        }
+};
+
+// CONSTRUCTORS/DESTRUCTOR
+Form::Form() : _name("default"), _sign_grade(1), _run_grade(1) {
+
+}
+
+Form::Form(std::string name, bool is_signed, int sign_grade, int run_grade)
+    : _name(name), _is_signed(is_signed),
+    _sign_grade(sign_grade), _run_grade(run_grade)
+{
+
+    if (sign_grade < 1 || run_grade < 1)
+		throw Form::GradeTooHighException();
+	else if (sign_grade > 150 || run_grade > 150)
+		throw Form::GradeTooLowException();
+}
+
+Form::Form(Form const & src) : _name(src._name), _is_signed(src._is_signed),
+    _sign_grade(src._sign_grade),
+    _run_grade(src._run_grade)
+{
+
+}
+
+Form::~Form() {
+
+}
+
+// OVERLOAD = OPERATOR
+Form & Form::operator=(Form const & rhs) {
+
+    this->_is_signed = rhs.getIsSigned();
+    return *this;
+}
+
+// GETTERS
+std::string Form::getName(void) const {
+
+    return (this->_name);
+}
+
+bool        Form::getIsSigned(void) const {
+
+    return (this->_is_signed);
+}
+
+int   Form::getMinGradeToSign(void) const {
+
+    return (this->_sign_grade);
+}
+
+int   Form::getMinGradeToRun(void) const {
+
+    return (this->_run_grade);
+}
+
+// operator <<
+std::ostream &  operator<<(std::ostream & out, Form const & rhs) {
+
+    std::string form_position;
+
+    if (rhs.getIsSigned())
+        form_position = " is signed.";
+    else
+        form_position = " is not signed.";
+    out << "Form " << rhs.getName() << form_position << " ";
+    out << "Min grade to sign: " << rhs.getMinGradeToSign();
+    out << ", min grade to run: " << rhs.getMinGradeToRun() << std::endl;
+    return out;
+}
+
+// functions
+void    Form::beSigned(Bureaucrat const & brc) {
+
+    if (brc.getGrade() > this->getMinGradeToSign())
+        throw Form::GradeTooLowException();
+    else
+        this->_is_signed = 1;
+}
