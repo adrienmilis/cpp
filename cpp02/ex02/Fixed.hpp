@@ -42,6 +42,8 @@ class Fixed
         Fixed   operator--(int); // postfix decrement
 
         // min max
+        static Fixed & min(Fixed & a, Fixed & b);
+        static Fixed & max(Fixed & a, Fixed & b);
         static Fixed const & min(Fixed const & a, Fixed const & b);
         static Fixed const & max(Fixed const & a, Fixed const & b);
         

@@ -177,7 +177,7 @@ Fixed   Fixed::operator--(int) {
     return tmp;     // return value before decrement
 }
 
-Fixed const & Fixed::min(Fixed const & a, Fixed const & b){
+Fixed & Fixed::min(Fixed & a, Fixed & b) {
 
     if (a._fixed_value < b._fixed_value)
         return (a);
@@ -185,7 +185,23 @@ Fixed const & Fixed::min(Fixed const & a, Fixed const & b){
         return (b);
 }
 
-Fixed const & Fixed::max(Fixed const & a, Fixed const & b){
+Fixed & Fixed::max(Fixed & a, Fixed & b) {
+
+    if (a._fixed_value > b._fixed_value)
+        return (a);
+    else
+        return (b);
+}
+
+Fixed const & Fixed::min(Fixed const & a, Fixed const & b) {
+
+    if (a._fixed_value < b._fixed_value)
+        return (a);
+    else
+        return (b);
+}
+
+Fixed const & Fixed::max(Fixed const & a, Fixed const & b) {
 
     if (a._fixed_value > b._fixed_value)
         return (a);

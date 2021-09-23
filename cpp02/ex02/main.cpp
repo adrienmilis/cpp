@@ -38,7 +38,11 @@ int main(void) {
 
     std::cout << "=== MIN/MAX ===" << std::endl;
     std::cout << Fixed::max(a, c) << std::endl;
-    std::cout << Fixed::min(a,c) << std::endl;
+    std::cout << Fixed::min(a, c) << std::endl;
+
+    const Fixed x(100);
+    const Fixed y(8.5f);
+
 
     return (0);
 }
