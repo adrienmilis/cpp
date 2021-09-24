@@ -1,14 +1,17 @@
+#include <iostream>
 #include "Form.hpp"
 
 int main(void)
 {
     // should be fine
-    Form        form1("form1", false, 10, 10);
+    std::cout << "===TEST1===" << std::endl;
+    Form        form1("form1", 10, 10);
     Bureaucrat  tom("Tom", 9);
 
     try
     {
         tom.signForm(form1);
+        std::cout << form1 << std::endl;
     }
     catch (std::exception & e)
     {
@@ -16,7 +19,8 @@ int main(void)
     }
 
     // richard's grade is too low
-    Form        form2("form2", false, 10, 10);
+    std::cout << "===TEST2===" << std::endl;
+    Form        form2("form2", 10, 10);
     Bureaucrat  richard("Richard", 100);
 
     try
@@ -29,11 +33,13 @@ int main(void)
     }
 
     // form is already signed
-    Form        form3("form3", true, 10, 10);
+    std::cout << "===TEST3===" << std::endl;
+    Form        form3("form3", 10, 10);
     Bureaucrat  bernard("Bernard", 5);
 
     try
     {
+        bernard.signForm(form3);
         bernard.signForm(form3);
     }
     catch (std::exception & e)
@@ -42,9 +48,10 @@ int main(void)
     }
 
     // sign grade is too low
+    std::cout << "===TEST4===" << std::endl;
     try
     {
-        Form form4("form4", false, 160, 5);
+        Form form4("form4", 160, 5);
     }
     catch(std::exception& e)
     {
@@ -52,9 +59,10 @@ int main(void)
     }
 
     // sign grade is too high
+    std::cout << "===TEST5===" << std::endl;
     try
     {
-        Form form4("form4", false, 0, 5);
+        Form form5("form5", 0, 5);
     }
     catch(std::exception& e)
     {
@@ -62,9 +70,10 @@ int main(void)
     }
 
     // run grade is too low
+    std::cout << "===TEST6===" << std::endl;
     try
     {
-        Form form4("form4", false, 5, 160);
+        Form form6("form6", 5, 160);
     }
     catch(std::exception& e)
     {
@@ -72,9 +81,10 @@ int main(void)
     }
 
     // run grade is too high
+    std::cout << "===TEST7===" << std::endl;
     try
     {
-        Form form4("form4", false, 5, 0);
+        Form form7("form7", 5, 0);
     }
     catch(std::exception& e)
     {

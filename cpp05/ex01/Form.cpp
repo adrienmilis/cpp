@@ -26,22 +26,22 @@ class Form::GradeTooLowException : public std::exception
 };
 
 // CONSTRUCTORS/DESTRUCTOR
-Form::Form() : _name("default"), _sign_grade(1), _run_grade(1) {
+Form::Form() : _name("default form"), _sign_grade(1), _run_grade(1) {
 
 }
 
-Form::Form(std::string name, bool is_signed, int sign_grade, int run_grade)
-    : _name(name), _is_signed(is_signed),
+Form::Form(std::string name, int sign_grade, int run_grade)
+    : _name(name), _is_signed(false),
     _sign_grade(sign_grade), _run_grade(run_grade)
 {
-
     if (sign_grade < 1 || run_grade < 1)
 		throw Form::GradeTooHighException();
 	else if (sign_grade > 150 || run_grade > 150)
 		throw Form::GradeTooLowException();
 }
 
-Form::Form(Form const & src) : _name(src._name), _is_signed(src._is_signed),
+Form::Form(Form const & src) : _name(src._name),
+    _is_signed(src._is_signed),
     _sign_grade(src._sign_grade),
     _run_grade(src._run_grade)
 {
@@ -89,9 +89,9 @@ std::ostream &  operator<<(std::ostream & out, Form const & rhs) {
         form_position = " is signed.";
     else
         form_position = " is not signed.";
-    out << "Form " << rhs.getName() << form_position << " ";
-    out << "Min grade to sign: " << rhs.getMinGradeToSign();
-    out << ", min grade to run: " << rhs.getMinGradeToRun() << std::endl;
+    out << "Form " << rhs.getName() << form_position << " Min grade to sign: "
+        << rhs.getMinGradeToSign() << ", min grade to run: "
+        << rhs.getMinGradeToRun();
     return out;
 }
 
