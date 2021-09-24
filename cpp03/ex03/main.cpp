@@ -17,7 +17,7 @@ int main(void) {
     ScavTrap    toutatis("toutatis");
 
     toutatis.attack("a killer robot");
-    toutatis.guardGuate();
+    toutatis.guardGate();
     std::cout << std::endl;
 
     FragTrap    magnus("magnus");
@@ -28,7 +28,7 @@ int main(void) {
 
     DiamondTrap jc("jc");
 
-    jc.guardGuate();
+    jc.guardGate();
     jc.highFivesGuys();
     jc.whoAmI();
     jc.attack("Thor");

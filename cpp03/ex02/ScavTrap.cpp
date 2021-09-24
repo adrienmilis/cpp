@@ -20,7 +20,7 @@ void    ScavTrap::attack(std::string const & target) {
         << " damage dealt."<< std::endl;
 }
 
-void    ScavTrap::guardGuate() {
+void    ScavTrap::guardGate() {
 
     std::cout << "ScavTrap " << this->_name
         << " has entered gate keeping mode." << std::endl;
