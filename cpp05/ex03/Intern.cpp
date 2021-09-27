@@ -1,5 +1,4 @@
 #include "Intern.hpp"
-#include "Form.hpp"
 
 Intern::Intern() {
 
@@ -7,6 +6,7 @@ Intern::Intern() {
 
 Intern::Intern(Intern const & src) {
 
+    (void)src;
 }
 
 Intern::~Intern() {
@@ -15,17 +15,44 @@ Intern::~Intern() {
 
 Intern & Intern::operator=(Intern const & rhs) {
 
-    // assignation operation
-
+    (void)rhs;
     return *this;
 }
 
-void    Intern::makeForm(std::string form_name, std::string target) const {
+Form    *Intern::createShrubberyForm(std::string target) const {
+
+    Form    *form = new ShrubberyCreationForm(target);
+    
+    return (form);
+}
+
+Form    *Intern::createRobotomyForm(std::string target) const {
+
+    Form    *form = new RobotomyRequestForm(target);
+
+    return (form);
+}
+
+Form    *Intern::createPresidentialForm(std::string target) const {
+
+    Form    *form = new PresidentialPardonForm(target);
+
+    return (form);
+}
+
+Form    *Intern::makeForm(std::string form_name, std::string target) const {
+
+    Form    *instance;
 
     std::string tab[3] = {"shrubbery form", "robotomy form", "presidential form"};
-    void        (Form::*x[3])(void)
+    Form        *(Intern::*x[3])(std::string) const = {&Intern::createShrubberyForm, &Intern::createRobotomyForm, &Intern::createPresidentialForm};
 
     for (int i = 0; i < 3; i++) {
-        
+        if (form_name == tab[i]) {
+            instance = (this->*x[i])(target);
+            return (instance);
+        }
     }
+    std::cout << "Form is not known" << std::endl;
+    return (NULL);
 }
