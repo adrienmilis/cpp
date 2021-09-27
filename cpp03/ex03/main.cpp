@@ -4,6 +4,8 @@
 #include "DiamondTrap.hpp"
 #include <iostream>
 
+// https://www.sandordargo.com/blog/2020/12/23/virtual-inheritance
+
 int main(void) {
 
     ClapTrap    bipboop("bip-boop");

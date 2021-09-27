@@ -16,12 +16,12 @@ ScavTrap::~ScavTrap() {
 void    ScavTrap::attack(std::string const & target) {
 
     std::cout << "ScavTrap " << this->_name  << " slams " << target
-        << " on the ground, ClavTrap style. " << this->_attack_damage
+        << " on the ground. " << this->_attack_damage
         << " damage dealt."<< std::endl;
 }
 
 void    ScavTrap::guardGate() {
 
     std::cout << "ScavTrap " << this->_name
-        << " has entered gate keeping mode." << std::endl;
+        << " has entered gate keeper mode." << std::endl;
 }
