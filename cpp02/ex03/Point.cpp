@@ -8,9 +8,8 @@ Point::Point(Fixed const a, Fixed const b) : _x(a.toFloat()), _y(b.toFloat()) {
 
 }
 
-Point::Point(Point const & src) {
+Point::Point(Point const & src) : _x(src.get_x()), _y(src.get_y()) {
 
-    *this = src;
 }
 
 Point::~Point() {

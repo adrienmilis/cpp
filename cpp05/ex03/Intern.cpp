@@ -44,12 +44,13 @@ Form    *Intern::makeForm(std::string form_name, std::string target) const {
 
     Form    *instance;
 
-    std::string tab[3] = {"shrubbery form", "robotomy form", "presidential form"};
+    std::string tab[3] = {"shrubbery form", "robotomy form", "pardon form"};
     Form        *(Intern::*x[3])(std::string) const = {&Intern::createShrubberyForm, &Intern::createRobotomyForm, &Intern::createPresidentialForm};
 
     for (int i = 0; i < 3; i++) {
         if (form_name == tab[i]) {
             instance = (this->*x[i])(target);
+            std::cout << "Intern creates " << tab[i] << std::endl;
             return (instance);
         }
     }
