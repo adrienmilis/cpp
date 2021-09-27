@@ -54,6 +54,6 @@ Form    *Intern::makeForm(std::string form_name, std::string target) const {
             return (instance);
         }
     }
-    std::cout << "Form is not known" << std::endl;
+    std::cout << "Requested form is not known" << std::endl;
     return (NULL);
 }
