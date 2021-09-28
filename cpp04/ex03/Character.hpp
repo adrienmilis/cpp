@@ -8,7 +8,7 @@ class Character : public ICharacter
 {
     private:
 
-        AMateria	**_inventory;		// inventory = new AMateria*[4];
+        AMateria	**_inventory;
 		std::string	_name;
 
 	public:

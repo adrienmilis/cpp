@@ -1,10 +1,5 @@
 #include "Character.hpp"
 
-/* 
-    - copy and assignation
-    - delete Materia upon destruction
-*/
-
 /* CONSTRUCTORS, DESTRUCTOR, ASSIGNATION OVERLOAD */
 
 Character::Character(std::string name) : _name(name) {

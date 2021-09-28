@@ -19,8 +19,8 @@ class AMateria
 
 		std::string const & getType() const; //Returns the materia type
 
-		virtual AMateria* clone() const = 0;	// ce comportement n'est pas defini
-		virtual void use(ICharacter& target) = 0;	// ce comportement est defini
+		virtual AMateria* clone() const = 0;
+		virtual void use(ICharacter& target) = 0;
 
 };
 
