@@ -17,6 +17,7 @@ class Animal
     protected:
 
         std::string type;
+        Animal(std::string type);
 };
 
 #endif

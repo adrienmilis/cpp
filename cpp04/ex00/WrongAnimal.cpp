@@ -6,6 +6,10 @@ WrongAnimal::WrongAnimal() {
     std::cout << "WrongAnimal created" << std::endl;
 }
 
+WrongAnimal::WrongAnimal(std::string type) : type(type) {
+
+}
+
 WrongAnimal::~WrongAnimal() {
 
 	std::cout << "WrongAnimal destroyed" << std::endl;

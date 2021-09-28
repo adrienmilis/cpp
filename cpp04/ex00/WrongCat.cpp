@@ -1,8 +1,7 @@
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat() {
+WrongCat::WrongCat() : WrongAnimal("WrongCat") {
 
-    this->type = "WrongCat";
     std::cout << "WrongCat created" << std::endl;
 }
 

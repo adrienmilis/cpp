@@ -1,14 +1,18 @@
 #include "Animal.hpp"
 
-Animal::Animal() {
+Animal::Animal() : type("Animal") {
 
-    this->type = "Animal";
-    std::cout << "Animal created." << std::endl;
+    std::cout << "Animal created" << std::endl;
 }
+
+Animal::Animal(std::string type) : type(type) {
+    
+    std::cout << "Animal created" << std::endl;
+} 
 
 Animal::~Animal() {
 
-    std::cout << "Animal destroyed." << std::endl;
+    std::cout << "Animal destroyed" << std::endl;
 }
 
 std::string Animal::getType() const {

@@ -1,8 +1,7 @@
 #include "Cat.hpp"
 
-Cat::Cat() {
+Cat::Cat() : Animal("Cat") {
 
-    this->type = "Cat";
     std::cout << "Cat created" << std::endl;
 }
 

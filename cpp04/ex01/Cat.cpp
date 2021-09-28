@@ -1,9 +1,7 @@
 #include "Cat.hpp"
 
-Cat::Cat() {
+Cat::Cat() : Animal("Cat"), _brain(new Brain()) {
 
-    this->type = "Cat";
-    this->_brain = new Brain();
     std::cout << "Cat created" << std::endl;
 }
 
@@ -32,6 +30,7 @@ Cat & Cat::operator=(Cat const & rhs) {
 
     std::cout << "Assignation operator called" << std::endl;
     this->type = rhs.type;
+    delete this->_brain;
     this->_brain = new Brain();
     for (int i = 0 ; i < 100; i++) {
         this->_brain->setIdea(i, rhs._brain->getIdea(i));
@@ -39,7 +38,8 @@ Cat & Cat::operator=(Cat const & rhs) {
     return *this;
 }
 
-Brain   *Cat::getBrainAddress() {
+Brain   *Cat::getBrain() {
 
     return this->_brain;
 }
+

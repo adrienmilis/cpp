@@ -17,7 +17,7 @@ class Cat : public Animal
 		Cat & operator=(Cat const & rhs);
 
 		virtual void	makeSound() const;
-		Brain			*getBrainAddress();
+		Brain			*getBrain();
 
 	private:
 

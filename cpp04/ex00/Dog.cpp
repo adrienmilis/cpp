@@ -1,9 +1,8 @@
 #include "Dog.hpp"
 
-Dog::Dog() {
+Dog::Dog() : Animal("Dog") {
 
-    this->type = "Dog";
-    std::cout << "Dog created." << std::endl;
+    std::cout << "Dog created" << std::endl;
 }
 
 Dog::~Dog() {

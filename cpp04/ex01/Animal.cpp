@@ -6,6 +6,11 @@ Animal::Animal() {
     std::cout << "Animal created." << std::endl;
 }
 
+Animal::Animal(std::string type) : type(type) {
+
+    std::cout << "Animal created." << std::endl;
+}
+
 Animal::~Animal() {
 
     std::cout << "Animal destroyed." << std::endl;

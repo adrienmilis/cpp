@@ -18,6 +18,7 @@ class WrongAnimal
     protected:
 
         std::string type;
+        WrongAnimal(std::string type);
 };
 
 #endif

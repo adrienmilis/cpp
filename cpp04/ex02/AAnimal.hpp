@@ -17,6 +17,7 @@ class AAnimal
     protected:
 
         std::string type;
+        AAnimal(std::string type);
 };
 
 #endif

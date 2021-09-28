@@ -1,9 +1,7 @@
 #include "Dog.hpp"
 
-Dog::Dog() {
+Dog::Dog() : AAnimal("Dog"), _brain(new Brain()) {
 
-    this->type = "Dog";
-    this->_brain = new Brain();
     std::cout << "Dog created." << std::endl;
 }
 
@@ -21,7 +19,9 @@ void    Dog::makeSound() const {
 // performs a deep copy of Dog
 Dog & Dog::operator=(Dog const & rhs) {
 
+    std::cout << "Assignation operator called" << std::endl;
     this->type = rhs.type;
+    delete this->_brain;
     this->_brain = new Brain();
     for (int i = 0 ; i < 100; i++) {
         this->_brain->setIdea(i, rhs._brain->getIdea(i));
