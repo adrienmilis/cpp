@@ -1,38 +1,15 @@
 #include "Form.hpp"
 
-/*
-    - le form n'est pas signe (initialise a 0)
-    - constructeurs/destructeur/operateur=
-    - beSigned
-*/
-
-// EXCEPTIONS
-class Form::GradeTooHighException : public std::exception
-{
-    public:
-        virtual const char* what() const throw()
-        {
-            return ("Exception : grade is too high");
-        }
-};
-
-class Form::GradeTooLowException : public std::exception
-{
-    public:
-        virtual const char* what() const throw()
-        {
-            return ("Exception : grade is too low");
-        }
-};
-
 // CONSTRUCTORS/DESTRUCTOR
 Form::Form() : _name("default form"), _sign_grade(1), _run_grade(1) {
 
 }
 
-Form::Form(std::string name, int sign_grade, int run_grade)
-    : _name(name), _is_signed(false),
-    _sign_grade(sign_grade), _run_grade(run_grade)
+Form::Form(std::string name, int sign_grade, int run_grade) :
+    _name(name),
+    _is_signed(false),
+    _sign_grade(sign_grade),
+    _run_grade(run_grade)
 {
     if (sign_grade < 1 || run_grade < 1)
 		throw Form::GradeTooHighException();
@@ -98,7 +75,9 @@ std::ostream &  operator<<(std::ostream & out, Form const & rhs) {
 // functions
 void    Form::beSigned(Bureaucrat const & brc) {
 
-    if (brc.getGrade() > this->getMinGradeToSign())
+    if (this->_is_signed == 1)
+        throw Form::FormAlreadySignedException();
+    else if (brc.getGrade() > this->getMinGradeToSign())
         throw Form::GradeTooLowException();
     else
         this->_is_signed = 1;
