@@ -1,9 +1,5 @@
 #include "Bureaucrat.hpp"
 
-/*
-    - la forme coplienne
-*/
-
 // EXCEPTIONS
 class   Bureaucrat::GradeTooHighException : public std::exception
 {
@@ -21,6 +17,7 @@ class   Bureaucrat::GradeTooLowException : public std::exception
             return ("Exception : grade too low, min is 150"); }
 };
 
+// COPLIENNE
 Bureaucrat::Bureaucrat() {
 
 }
@@ -37,7 +34,6 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
 
 Bureaucrat::Bureaucrat(Bureaucrat const & src) : _name(src._name), _grade(src._grade) {
 
-    
 }
 
 Bureaucrat::~Bureaucrat() {
@@ -53,7 +49,7 @@ Bureaucrat & Bureaucrat::operator=(Bureaucrat const & rhs) {
 }
 
 // GETTERS FOR NAME AND GRADE
-std::string const Bureaucrat::getName(void) const {
+std::string Bureaucrat::getName(void) const {
 
     return this->_name;
 }
@@ -64,7 +60,7 @@ int Bureaucrat::getGrade(void) const {
 }
 
 // << OVERLOAD
-std::ostream & operator <<(std::ostream & out, Bureaucrat const & rhs) {
+std::ostream & operator<<(std::ostream & out, Bureaucrat const & rhs) {
 
     out << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
     return out;

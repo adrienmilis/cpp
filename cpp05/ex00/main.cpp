@@ -9,7 +9,7 @@ int main(void)
     }
     catch(std::exception & e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << e.what() << std::endl;
     }
     
     Bureaucrat richard("Richard", 2);
@@ -19,12 +19,16 @@ int main(void)
         std::cout << richard << std::endl;
         richard.grade_increment();
         std::cout << richard << std::endl;
+        richard.grade_decrement();
+        std::cout << richard << std::endl;
+        richard.grade_increment();
+        std::cout << richard << std::endl;
         richard.grade_increment();
         std::cout << richard << std::endl;
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << e.what() << std::endl;
     }
 
     return (0);
