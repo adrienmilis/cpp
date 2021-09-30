@@ -10,6 +10,7 @@ int main(void)
 
     try
     {
+        std::cout << form1 << std::endl;
         tom.signForm(form1);
         std::cout << form1 << std::endl;
     }
@@ -23,29 +24,15 @@ int main(void)
     Form        form2("form2", 10, 10);
     Bureaucrat  richard("Richard", 100);
 
-    try
-    {
-        richard.signForm(form2);
-    }
-    catch (std::exception & e)
-    {
-        std::cerr << e.what() << std::endl;
-    }
+    richard.signForm(form2);
 
     // form is already signed
     std::cout << "===TEST3===" << std::endl;
     Form        form3("form3", 10, 10);
     Bureaucrat  bernard("Bernard", 5);
 
-    try
-    {
-        bernard.signForm(form3);
-        bernard.signForm(form3);
-    }
-    catch (std::exception & e)
-    {
-        std::cerr << e.what() << std::endl;
-    }
+    bernard.signForm(form3);
+    bernard.signForm(form3);
 
     // sign grade is too low
     std::cout << "===TEST4===" << std::endl;

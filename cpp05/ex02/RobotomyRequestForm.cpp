@@ -1,11 +1,5 @@
 #include "RobotomyRequestForm.hpp"
 
-/*
-    -   RobotomyRequestForm (Required grades: sign 72, exec 45). Action: Makes some
-        drilling noises, and tell us that <target> has been robotomized successfully 50% of
-        the time. Otherwise, tell us it’s a failure
-*/
-
 // COPLIENNE
 RobotomyRequestForm::RobotomyRequestForm() : Form("robotomy form", 72, 45) {
 

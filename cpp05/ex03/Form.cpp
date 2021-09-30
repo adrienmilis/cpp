@@ -1,39 +1,5 @@
 #include "Form.hpp"
 
-/*
-    - le form n'est pas signe (initialise a 0)
-    - constructeurs/destructeur/operateur=
-    - beSigned
-*/
-
-// EXCEPTIONS
-class Form::GradeTooHighException : public std::exception
-{
-    public:
-        virtual const char* what() const throw()
-        {
-            return ("Exception : grade is too high");
-        }
-};
-
-class Form::GradeTooLowException : public std::exception
-{
-    public:
-        virtual const char* what() const throw()
-        {
-            return ("Exception : grade is too low");
-        }
-};
-
-class Form::FormNotSignedException : public std::exception
-{
-    public:
-        virtual const char* what() const throw()
-        {
-            return ("Exception : trying to execute form that is not signed.");
-        }
-};
-
 // CONSTRUCTORS/DESTRUCTOR
 Form::Form() : _name("default form"), _sign_grade(1), _run_grade(1) {
 
@@ -112,7 +78,9 @@ std::ostream &  operator<<(std::ostream & out, Form const & rhs) {
 // functions
 void    Form::beSigned(Bureaucrat const & brc) {
 
-    if (brc.getGrade() > this->getMinGradeToSign())
+    if (this->_is_signed == 1)
+        throw Form::FormAlreadySignedException();
+    else if (brc.getGrade() > this->getMinGradeToSign())
         throw Form::GradeTooLowException();
     else
         this->_is_signed = 1;

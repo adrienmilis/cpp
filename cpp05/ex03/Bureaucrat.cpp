@@ -1,9 +1,5 @@
 #include "Bureaucrat.hpp"
 
-/*
-    - la forme coplienne
-*/
-
 // EXCEPTIONS
 class   Bureaucrat::GradeTooHighException : public std::exception
 {
@@ -53,7 +49,7 @@ Bureaucrat & Bureaucrat::operator=(Bureaucrat const & rhs) {
 }
 
 // GETTERS FOR NAME AND GRADE
-std::string const Bureaucrat::getName(void) const {
+std::string Bureaucrat::getName(void) const {
 
     return this->_name;
 }
@@ -64,7 +60,7 @@ int Bureaucrat::getGrade(void) const {
 }
 
 // << OVERLOAD
-std::ostream & operator <<(std::ostream & out, Bureaucrat const & rhs) {
+std::ostream & operator<<(std::ostream & out, Bureaucrat const & rhs) {
 
     out << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
     return out;
@@ -90,21 +86,24 @@ void    Bureaucrat::grade_decrement() {
 // FUNCTIONS
 void    Bureaucrat::signForm(Form & f) const {
 
-    if (f.getIsSigned())
-    {
-        std::cout << this->_name
-            << " cannot sign because form is already signed." << std::endl;
-        return ;
-    }
     try
     {
         f.beSigned(*this);
         std::cout << this->_name << " signs " << f.getName() << std::endl;
     }
-    catch(std::exception & e)
+    catch (Form::FormAlreadySignedException & e)
+    {
+        std::cout << this->_name <<
+            " cannot sign because form is already signed" << std::endl;
+    }
+    catch (Form::GradeTooLowException & e)
     {
         std::cout << this->_name
             << " cannot sign because grade is too low." << std::endl;
+    }
+    catch (std::exception & e)
+    {
+        std::cout << e.what() << std::endl;
     }
 }
 

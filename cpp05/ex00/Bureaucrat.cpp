@@ -42,8 +42,6 @@ Bureaucrat::~Bureaucrat() {
 
 Bureaucrat & Bureaucrat::operator=(Bureaucrat const & rhs) {
 
-    // assignation operation
-
     this->_grade = rhs._grade;
     return *this;
 }

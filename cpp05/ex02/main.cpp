@@ -5,11 +5,6 @@
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-/*
-    - 3 nouvelles classes derivees
-    - ajouter une nvelle exception : form is not signed (when trying to execute) ?
-*/
-
 int main(void)
 {
     ShrubberyCreationForm   sh("home");

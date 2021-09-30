@@ -14,11 +14,11 @@ class Form
         bool                _is_signed;
         int const           _sign_grade;
         int const           _run_grade;
+		Form();
 
 	public:
 
         // coplienne
-		Form();
         Form(std::string name, int sign_grade, int run_grade);
         Form(Form const & src);
 		virtual ~Form();
@@ -32,9 +32,33 @@ class Form
         void        setIsSigned(bool sgn);
 
         // exceptions
-        class GradeTooHighException;
-        class GradeTooLowException;
-        class FormNotSignedException;
+        class GradeTooHighException : public std::exception {
+            public:
+                virtual const char* what() const throw() {
+                    return ("Exception : grade is too high");
+                }
+        };
+
+        class GradeTooLowException : public std::exception {
+            public:
+                virtual const char* what() const throw() {
+                    return ("Exception : grade is too low");
+                }
+        };
+
+        class FormAlreadySignedException : public std::exception {
+            public:
+                virtual const char* what() const throw() {
+                    return ("Exception : form is already signed");
+                }
+        };
+
+        class FormNotSignedException : public std::exception {
+            public:
+                virtual const char* what() const throw() {
+                    return ("Exception : trying to execute form that is not signed.");
+                }
+        };
 
         // fcts
         void            beSigned(Bureaucrat const & brc);
