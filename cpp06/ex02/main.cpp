@@ -1,10 +1,8 @@
+#include <iostream>
 #include "Base.hpp"
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
-#include <ctime>
-#include <iostream>
-#include <cstdlib>
 
 Base *  generate(void)
 {
@@ -12,22 +10,35 @@ Base *  generate(void)
 
     n = rand() % 3;
     if (n == 0)
+    {
+        std::cout << "A created" << std::endl;
         return (new A());
+    }
     else if (n == 1)
+    {
+        std::cout << "B created" << std::endl;
         return (new B());
+    }
     else
+    {
+        std::cout << "C created" << std::endl;
         return (new C());
+    }
 }
 
 void    identify(Base * p)
 {
     A *a = dynamic_cast<A*>(p);
-    if (a != NULL)
+    if (a != NULL) {
         std::cout << "A" << std::endl;
+        return ;
+    }
 
     B *b = dynamic_cast<B*>(p);
-    if (b != NULL)
+    if (b != NULL) {
         std::cout << "B" << std::endl;
+        return;
+    }
 
     C *c = dynamic_cast<C*>(p);
     if (c != NULL)
@@ -40,6 +51,7 @@ void    identify(Base & p)
         A & a = dynamic_cast<A &>(p);
         A a_bis = a;
         std::cout << "A" << std::endl;
+        return ;
     }
     catch (std::bad_cast & bc) {}
 
@@ -47,6 +59,7 @@ void    identify(Base & p)
         B & b = dynamic_cast<B &>(p);
         B b_bis = b;
         std::cout << "B" << std::endl;
+        return ;
     }
     catch (std::bad_cast & bc) {}
 
@@ -72,6 +85,7 @@ int main(void)
         
         Base    &base_ref = *base_ptr;
         identify(base_ref);
+        delete base_ptr;
         std::cout << std::endl;
     }
     return (0);
