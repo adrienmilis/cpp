@@ -1,9 +1,5 @@
 #include "scalar.hpp"
 
-/*
-    - Numeric limits and special values
-*/
-
 void    detect_type(char *str)
 {
     if (is_int(str))

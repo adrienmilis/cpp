@@ -1,10 +1,5 @@
 #include "scalar.hpp"
 
-/*
-    A GERER:
-        - les pseudo literals
-*/
-
 int    check_for_filling(double d)
 {
     int i = static_cast<int>(d);

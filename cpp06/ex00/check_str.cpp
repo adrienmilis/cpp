@@ -4,6 +4,8 @@ int is_int(char *str)
 {
     int i = 0;
 
+    if (str[0] == '-')
+        i++;
     while (str[i])
     {
         if (!isdigit(str[i]))
