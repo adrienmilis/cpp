@@ -4,14 +4,14 @@
 #include <iostream>
 
 template<typename T>
-void    iter(T **t, int len, void (*f)(T & elem))
+void    iter(T *t, int len, void (*f)(T const & elem))
 {
     for (int i = 0; i < len ; i++)
-        (*f)((*t)[i]);
+        (*f)(t[i]);
 }
 
 template<typename T>
-void    display(T & t)
+void    display(T const & t)
 {
     std::cout << t << std::endl;
 }
