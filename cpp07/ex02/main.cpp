@@ -1,6 +1,27 @@
 #include <iostream>
 #include "Array.hpp"
 
+class Awesome
+{
+    private:
+
+        std::string _stringu;
+
+    public:
+
+        Awesome() : _stringu("garbanzo beans") {}
+        ~Awesome() {}
+        std::string getStringu() const { return this->_stringu; }
+        void        setStringu(std::string s) { this->_stringu = s; }
+        Awesome & operator=(Awesome const & rhs) { this->_stringu = rhs._stringu; return (*this); }
+};
+
+std::ostream & operator<<(std::ostream & o, Awesome const & rhs) {
+
+    o << rhs.getStringu();
+    return (o);
+}
+
 #define MAX_VAL 750
 int main(int, char**)
 {
@@ -51,5 +72,42 @@ int main(int, char**)
         numbers[i] = rand();
     }
     delete [] mirror;
+
+    std::cout << std::endl << "===COMPLEX TYPE===" << std::endl;
+    Array<Awesome> aws(10);
+    Array<Awesome> aws2(10);
+    for (int i = 0; i < 11 ; i++)
+    {
+        try {
+            std::cout << aws[i] << std::endl;
+        }
+        catch (std::exception & e) {
+            std::cout << e.what() << std::endl;
+        }
+    }
+
+    for (int i = 0; i < 10 ; i++)
+        aws2[i].setStringu("chili beans");
+    aws = aws2;
+    for (int i = 0; i < 11 ; i++)
+    {
+        try {
+            std::cout << aws[i] << std::endl;
+        }
+        catch (std::exception & e) {
+            std::cout << e.what() << std::endl;
+        }
+    }
+    Array<Awesome> aws3(aws2);
+    for (int i = 0; i < 11 ; i++)
+    {
+        try {
+            std::cout << aws[i] << std::endl;
+        }
+        catch (std::exception & e) {
+            std::cout << e.what() << std::endl;
+        }
+    }
+
     return 0;
 }

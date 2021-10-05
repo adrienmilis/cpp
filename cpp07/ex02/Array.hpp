@@ -15,8 +15,7 @@ class Array
         }
 
         Array<T>(unsigned int n) : _array(new T [n]), _size(n) {
-            for (unsigned int i = 0; i < this->_size ; i++)
-                this->_array[i] = 0;
+            
         }
 
         Array<T>(Array const & og) : _array(new T [og.size()]), _size(og.size()) {
