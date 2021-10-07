@@ -6,12 +6,6 @@
 #include <cmath>
 #include <algorithm>
 
-
-/*
-    - member functions must use STL algorithms
-    - add numbers by passing a range of iterators (use std::list.insert())
-*/
-
 class Span
 {
     private:

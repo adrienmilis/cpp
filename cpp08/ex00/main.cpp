@@ -43,7 +43,7 @@ int main(void)
     std::cout << easyfind(st, 20) << std::endl;
     std::cout << easyfind(st, 40) << std::endl;
 
-    std::multiset<int>  mst; // oui
+    std::multiset<int>  mst;
     mst.insert(10);
     mst.insert(20);
     mst.insert(30);

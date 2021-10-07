@@ -1,9 +1,5 @@
 #include "span.hpp"
 
-/*
-    - span functions
-*/
-
 Span::Span() {
 
 }
